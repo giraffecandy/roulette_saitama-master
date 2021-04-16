@@ -43,6 +43,7 @@ class _State extends State<MyApp> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
+
                     children: <Widget>[
                       Image.asset('image/$_name')
                       // Image.asset("image/saitamashi.png"),
@@ -133,7 +134,7 @@ class _State extends State<MyApp> {
         _name = "kaga.png";
       } else if(element == "10") {
         _message = "本庄市";
-        _name = "honjo.jpg";
+        _name = "honjou.jpg";
       } else if(element == "11") {
         _message = "東松山市";
         _name  = "higashimatsuyama.png";
@@ -289,7 +290,7 @@ class _State extends State<MyApp> {
         _name = "miyashiro.jpg";
       } else if(element == "62") {
         _message = "杉戸町	";
-        _name = "sugiito.jpg";
+        _name = "sugito.jpg";
       } else if(element == "63") {
         _message = "松伏町";
         _name   =  "matsubushi.jpg";
@@ -305,15 +306,15 @@ class _State extends State<MyApp> {
   }
 
 }
-
-class HexColor extends Color {
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll('#', '');
-    if (hexColor.length == 6) {
-      hexColor = 'FF' + hexColor;
-    }
-    return int.parse(hexColor, radix: 16);
-  }
-
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
-}
+//
+// class HexColor extends Color {
+//   static int _getColorFromHex(String hexColor) {
+//     hexColor = hexColor.toUpperCase().replaceAll('#', '');
+//     if (hexColor.length == 6) {
+//       hexColor = 'FF' + hexColor;
+//     }
+//     return int.parse(hexColor, radix: 16);
+//   }
+//
+//   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+// }
