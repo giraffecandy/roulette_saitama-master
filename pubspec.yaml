@@ -1,0 +1,91 @@
+name: flutter_intent2
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  flutter_slidable: ^0.5.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - image/saitamashi.png
+    - image/ageo.png
+    - image/arashiyama.jpg
+    - image/asaka.png
+    - image/chichibu.png
+    - image/fujimino.png
+    - image/hannou.png
+    - image/hanyu.png
+    - image/hasuda.png
+    - image/hatoyama.png
+    - image/hidaka.png
+    - image/higashichichibu.png
+    - image/higashimatsuyama.png
+    - image/honjou.jpg
+    - image/hujimi.png
+    - image/hukaya.png
+    - image/ina.png
+    - image/iruma.png
+    - image/kaga.png
+    - image/kamikawa.jpg
+    - image/kamisato.png
+    - image/kawagoe.png
+    - image/kasukabe.png
+    - image/kawaguchi.png
+    - image/kawashima.jpg
+    - image/kitamoto.png
+    - image/kounosu.png
+    - image/kuki.jpg
+    - image/kumagaya.png
+    - image/matsubushi.jpg
+    - image/minano.png
+    - image/misato.gif
+    - image/misatoshi.png
+    - image/kamisato.png
+    - image/miyashiro.jpg
+    - image/miyoshi.jpg
+    - image/moroyama.jpg
+    - image/nagatoro.png
+    - image/namekawa.jpg
+    - image/niiza.png
+    - image/ogano.jpg
+    - image/ogawa.jpg
+    - image/ogose.jpg
+    - image/okegawa.png
+    - image/sakato.jpg
+    - image/satte.jpg
+    - image/sayama.png
+    - image/shiki.png
+    - image/shiraoka.png
+    - image/souka.png
+    - image/sugito.jpg
+    - image/toda.png
+    - image/tokigawa.jpg
+    - image/tokorozawa.png
+    - image/tsurugashima.png
+    - image/wako.png
+    - image/warabi.png
+    - image/yashio.gif
+    - image/yorii.jpg
+    - image/yoshikawa.png
+    - image/yoshimi.png
+    - image/yukida.png
+    - image/koshigaya.png
+
+
