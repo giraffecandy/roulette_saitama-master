@@ -17,6 +17,24 @@ class _State extends State<MyApp> {
   String _message = 'Tap this button.';
   String _name = "saitamashi.png";
 
+  List<String> todoList = [];
+
+  // テキストフィールドのコントローラー設定
+  // コントローラーの宣言
+  late TextEditingController _todoInputController;
+
+  // コントローラーの初期化
+  void initState() {
+    super.initState();
+    _todoInputController = TextEditingController();
+  }
+
+  // statefulオブジェクトが削除されるときに、参照を削除してくれる
+  void dispose() {
+    super.dispose();
+    _todoInputController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -79,13 +97,13 @@ class _State extends State<MyApp> {
               Container(
                 padding: EdgeInsets.all(8),
                 constraints: BoxConstraints.expand(height: 140.0
-                  // ,width: 100.0
-                ),
+                    // ,width: 100.0
+                    ),
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     ElevatedButton(
-                      child: const Text('                 TAP!                 '),
+                      child: const Text('            TAP!            '),
                       style: ElevatedButton.styleFrom(
                         // color: HexColor("fb0c00"),
                         primary: Colors.orange,
@@ -97,9 +115,74 @@ class _State extends State<MyApp> {
                   ],
                 ),
               ),
-              Container(
-                child: todoListPage(),
-              )
+
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child: TextField(
+                  controller: _todoInputController,
+                  decoration: InputDecoration(hintText: '入力してください'),
+                  autofocus: true,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 0.0, right: 0.0, bottom: 30.0, left: 0.0),
+                child: RaisedButton(
+                  color: Colors.teal[400],
+                  textColor: Colors.white,
+                  child: Text('保存'),
+                  onPressed: () {
+                    // 変数の変化をリアルタイムに通知する
+                    setState(
+                          () {
+                        // 何かしらの入力があるときだけ実行
+                        if (_todoInputController.text.length > 0) {
+                          // 配列に入力値を追加
+                          todoList.add(_todoInputController.text);
+                          // テキストボックスを初期化
+                          _todoInputController.clear();
+                        }
+                      },
+                    );
+                  },
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  // リストの長さを計算
+                  itemCount: todoList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      padding: EdgeInsets.only(
+                          top: 0.0, right: 0.0, bottom: 0.0, left: 0.0),
+                      margin: EdgeInsets.only(
+                          top: 1.0, right: 0.0, bottom: 0.0, left: 0.0),
+                      color: Colors.cyan[600],
+                      child: ListTile(
+                        leading: Icon(Icons.star),
+                        title: Text(
+                          // リストに表示する文字列を設定
+                          ("$index : ${todoList[index]}"),
+                          style: TextStyle(
+                            fontFamily: 'OpenSans',
+                            fontSize: 24,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+
+              // Container(
+              //   child: Column(
+              //     children: [
+              //       TodoListPageState()
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -107,11 +190,13 @@ class _State extends State<MyApp> {
     );
   }
 
-  todoListPage() {
-    @override
-    _TodoListPageState createState() => _TodoListPageState();
+  // @override
+  // DismissibleSampleState createState() {
+  //   return DismissibleSampleState();
+  // }
+    _TodoAddPageState createState(){
+    return _TodoAddPageState();
   }
-
 
   void _onPressed() {
     setState(() {
@@ -387,7 +472,6 @@ class _State extends State<MyApp> {
       }
     });
   }
-
 }
 
 class TodoListPage extends StatefulWidget {
