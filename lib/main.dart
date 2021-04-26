@@ -1,5 +1,6 @@
 import 'dart:math';
-import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,50 +15,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _State extends State<MyApp> {
-  late String _nowword = "hello";
-
-  choice() {
-    setState(() {
-      List<String> words = [
-        '',
-        'A',
-        'B',
-        'C',
-        'D',
-        'E',
-        'F',
-        'G',
-        'H',
-        'I',
-        'J',
-        'K',
-        'L',
-        'M',
-        'N',
-        'O',
-        'P',
-        'Q',
-        'R',
-        'S',
-        'T',
-      ];
-      _nowword = words[Random().nextInt(words.length)];
-    });
-  }
-
-  // void frame() {
-  //   var frameworks = {
-  //     'Flutter': 'Dart',
-  //     'Rails': 'Ruby',
-  //   };
-  //
-  //   frameworks.forEach((key, value) {
-  //     String _key;
-  //     String _value;
-  //     // print('$key --- $value');
-  //   });
-  // }
-
   String _message = 'Tap this button.';
   String _name = "saitamakennki.png";
 
@@ -74,249 +31,173 @@ class _State extends State<MyApp> {
   }
 
   // statefulオブジェクトが削除されるときに、参照を削除してくれる
-  // void dispose() {
-  //   super.dispose();
-  //   _todoInputController.dispose();
-  // }
+  void dispose() {
+    super.dispose();
+    _todoInputController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-
-    // final List<Map<String, dynamic>> listItems = [
-    //   {
-    //     'text': 'Item 1',
-    //     'color': Colors.blue[600],
-    //   },
-    //   {
-    //     'text': 'Item 2',
-    //     'color': Colors.blue[300],
-    //   },
-    //   {
-    //     'text': 'Item 3',
-    //     'color': Colors.blue[100],
-    //   },
-    // ];
-
-    var listItem = ["Savar", "Archer", "Lancer", "Rider", "Caster", "Assassin", "Berserker", "Ruler", "Avenger", "Alterego", "Mooncancer"];
-
-
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              '埼玉 市町村ルーレット ',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            '埼玉 市町村ルーレット ',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
             ),
-            backgroundColor: Colors.orange[300],
           ),
-          body: Container(
-              padding: EdgeInsets.all(30.0),
-              child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Container(
-                        padding: EdgeInsets.all(25),
-                        child: Column(
-                          // mainAxisSize: MainAxisSize.min,
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          // crossAxisAlignment: CrossAxisAlignment.end,
+          backgroundColor: Colors.orange[300],
+        ),
+        body: Container(
+          padding: EdgeInsets.all(30.0),
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                  padding: EdgeInsets.all(25),
+                  child: Column(
+                    // mainAxisSize: MainAxisSize.min,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.end,
 
-                          children: <Widget>[
-                            ConstrainedBox(
-                              // constraints: BoxConstraints(
-                              //   minHeight: 10.0,
-                              //   maxWidth: 50.0,
-                              // ),
-                              constraints: BoxConstraints.expand(height: 130.0
-                                  // ,width: 100.0
-                                  ),
-                              child: Image.asset('image/$_name'),
-                            ),
-                            // Image.asset("image/saitamashi.png"),
-                            // Image.network('$_url'),
-                          ],
-                        )
-                        // width: size.width,
-                        // height: resultAreaHeight,
-                        ),
-                    Container(
-                      child: Column(
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          // mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              _message,
-                              style: TextStyle(
-                                  // fontFamily: "",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30,
-                                  color: Colors.orange),
-                            ),
-                          ]),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(8),
-                      constraints: BoxConstraints.expand(height: 140.0
+                    children: <Widget>[
+                      ConstrainedBox(
+                        // constraints: BoxConstraints(
+                        //   minHeight: 10.0,
+                        //   maxWidth: 50.0,
+                        // ),
+                        constraints: BoxConstraints.expand(height: 130.0
                           // ,width: 100.0
-                          ),
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Text(_nowword),
-
-                          ElevatedButton(
-                            child: const Text('            TAP!            '),
-                            style: ElevatedButton.styleFrom(
-                              // color: HexColor("fb0c00"),
-                              primary: Colors.orange,
-                              onPrimary: Colors.white,
-                              shape: const StadiumBorder(),
-                            ),
-                            onPressed: _onPressed,
-                            onLongPress: choice,
-                          ),
-                        ],
+                        ),
+                        child: Image.asset('image/$_name'),
                       ),
-                      //           child:Column(
-                      //             children: [
-                      //               ListView.builder
-                      //               // (itemBuilder: itemBuilder)
-                      //             (BuildContext context, int index) {
-                      // return Container(
-                      // height: 80,
-                      // color: colorList[index % colorList.length],
-                      // );
-                      // },
-                      //             ],
-                      //           )
-                    ),
-                    Container(
-                      child: Column(
-                        children: <Widget>[
-                          // Container(
-                          //   height: 125,
-                          //   padding: EdgeInsets.all(4),
-                          //   // childrenを指定してリスト表示
-                          //   child: ListView(
-                          //     children: <Widget>[
-                          //       Container(
-                          //         height: 50,
-                          //         color: Colors.blue[600],
-                          //         child: Text('Item 1'),
-                          //       ),
-                          //       Container(
-                          //         height: 50,
-                          //         color: Colors.blue[300],
-                          //         child: Text('Item 2'),
-                          //       ),
-                          //       Container(
-                          //         height: 50,
-                          //         color: Colors.blue[100],
-                          //         child: Text('Item 3'),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-
-
-
-                          // Padding(
-                          //   padding: EdgeInsets.all(20.0),
-                          //   child: TextField(
-                          //     controller: _todoInputController,
-                          //     decoration: InputDecoration(hintText: '入力してください'),
-                          //     autofocus: true,
-                          //   ),
-                          // ),
-                          // Padding(
-                          //   padding: EdgeInsets.only(
-                          //       top: 0.0, right: 0.0, bottom: 30.0, left: 0.0),
-                          //   child: RaisedButton(
-                          //     color: Colors.teal[400],
-                          //     textColor: Colors.white,
-                          //     child: Text('保存'),
-                          //     onPressed: () {
-                          //       // 変数の変化をリアルタイムに通知する
-                          //       setState(
-                          //             () {
-                          //           // 何かしらの入力があるときだけ実行
-                          //           if (_todoInputController.text.length > 0) {
-                          //             // 配列に入力値を追加
-                          //             todoList.add(_todoInputController.text);
-                          //             // テキストボックスを初期化
-                          //             _todoInputController.clear();
-                          //           }
-                          //         },
-                          //       );
-                          //     },
-                          //   ),
-                          // ),
-                          // Expanded(
-                          //   child: ListView.builder(
-                          //     // リストの長さを計算
-                          //     itemCount: todoList.length,
-                          //     itemBuilder: (BuildContext context, int index) {
-                          //       return Container(
-                          //         padding: EdgeInsets.only(
-                          //             top: 0.0, right: 0.0, bottom: 0.0, left: 0.0),
-                          //         margin: EdgeInsets.only(
-                          //             top: 1.0, right: 0.0, bottom: 0.0, left: 0.0),
-                          //         color: Colors.cyan[600],
-                          //         child: ListTile(
-                          //           leading: Icon(Icons.star),
-                          //           title: Text(
-                          //             // リストに表示する文字列を設定
-                          //             ("$index : ${todoList[index]}"),
-                          //             style: TextStyle(
-                          //               fontFamily: 'OpenSans',
-                          //               fontSize: 24,
-                          //               color: Colors.white,
-                          //             ),
-                          //           ),
-                          //         ),
-                          //       );
-                          //     },
-                          //   ),
-                          // ),
-
-                          // Container(
-                          //   child: Column(
-                          //     children: [
-                          //       TodoListPageState()
-                          //     ],
-                          //   ),
-                          // ),
-                        ],
+                      // Image.asset("image/saitamashi.png"),
+                      // Image.network('$_url'),
+                    ],
+                  )
+                // width: size.width,
+                // height: resultAreaHeight,
+              ),
+              Container(
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
+                        _message,
+                        style: TextStyle(
+                          // fontFamily: "",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                            color: Colors.orange),
                       ),
+                    ]),
+              ),
+              Container(
+                padding: EdgeInsets.all(8),
+                constraints: BoxConstraints.expand(height: 140.0
+                  // ,width: 100.0
+                ),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    ElevatedButton(
+                      child: const Text('              TAP!              '),
+                      style: ElevatedButton.styleFrom(
+                        // color: HexColor("fb0c00"),
+                        primary: Colors.orange,
+                        onPrimary: Colors.white,
+                        shape: const StadiumBorder(),
+                      ),
+                      onPressed: _onPressed,
                     ),
-                    ListView.builder(itemBuilder: (BuildContext context, int index){
-                      return Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.black38),
-                            ),
+                  ],
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child: TextField(
+                  controller: _todoInputController,
+                  decoration: InputDecoration(hintText: '入力してください'),
+                  autofocus: true,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 0.0, right: 0.0, bottom: 30.0, left: 0.0),
+                child: RaisedButton(
+                  color: Colors.teal[400],
+                  textColor: Colors.white,
+                  child: Text('保存'),
+                  onPressed: () {
+                    // 変数の変化をリアルタイムに通知する
+                    setState(
+                          () {
+                        // 何かしらの入力があるときだけ実行
+                        if (_todoInputController.text.length > 0) {
+                          // 配列に入力値を追加
+                          todoList.add(_todoInputController.text);
+                          // テキストボックスを初期化
+                          _todoInputController.clear();
+                        }
+                      },
+                    );
+                  },
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  // リストの長さを計算
+                  itemCount: todoList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      padding: EdgeInsets.only(
+                          top: 0.0, right: 0.0, bottom: 0.0, left: 0.0),
+                      margin: EdgeInsets.only(
+                          top: 1.0, right: 0.0, bottom: 0.0, left: 0.0),
+                      color: Colors.cyan[600],
+                      child: ListTile(
+                        leading: Icon(Icons.star),
+                        title: Text(
+                          // リストに表示する文字列を設定
+                          ("$index : ${todoList[index]}"),
+                          style: TextStyle(
+                            fontFamily: 'OpenSans',
+                            fontSize: 24,
+                            color: Colors.white,
                           ),
-                          child: ListTile(
-                            leading: const Icon(Icons.done),
-                            title: Text(listItem[index]),
-                            subtitle: Text('$index'),
-                            onTap: () { /* react to the tile being tapped */ },
-                          ),);
-        },),
-                  ])),
-        ));
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+
+              // Container(
+              //   child: Column(
+              //     children: [
+              //       TodoListPageState()
+              //     ],
+              //   ),
+              // ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   // @override
   // DismissibleSampleState createState() {
   //   return DismissibleSampleState();
   // }
-  //   _TodoAddPageState createState(){
-  //   return _TodoAddPageState();
-  // }
+  _TodoAddPageState createState(){
+    return _TodoAddPageState();
+  }
 
   void _onPressed() {
     setState(() {
@@ -554,13 +435,13 @@ class _State extends State<MyApp> {
         _message = "秩父郡 皆野町";
         _name = "minano.png";
       } else if (element == "54") {
-        _message = "秩父群 長瀞町	";
+        _message = "秩父郡 長瀞町	";
         _name = "nagatoro.png";
       } else if (element == "55") {
         _message = "秩父郡 小鹿野町";
         _name = "ogano.jpg";
       } else if (element == "56") {
-        _message = "秩父郡 東秩父村";
+        _message = "秩父郡　東秩父村";
         _name = "higashichichibu.png";
       } else if (element == "57") {
         _message = "児玉郡 美里町";
@@ -575,10 +456,10 @@ class _State extends State<MyApp> {
         _message = "大里郡 寄居町	";
         _name = "yorii.jpg";
       } else if (element == "61") {
-        _message = "南埼玉郡 宮代町";
+        _message = "南埼玉群 宮代町";
         _name = "miyashiro.jpg";
       } else if (element == "62") {
-        _message = "北葛飾郡 杉戸町	";
+        _message = "北葛飾群 杉戸町	";
         _name = "sugito.jpg";
       } else if (element == "63") {
         _message = "北葛飾群 松伏町";
@@ -593,8 +474,6 @@ class _State extends State<MyApp> {
     });
   }
 }
-
-
 
 class TodoListPage extends StatefulWidget {
   @override
@@ -623,26 +502,26 @@ class _TodoListPageState extends State<TodoListPage> {
           );
         },
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () async {
-      //     // "push"で新規画面に遷移
-      //     // リスト追加画面から渡される値を受け取る
-      //     final newListText = await Navigator.of(context).push(
-      //       MaterialPageRoute(builder: (context) {
-      //         // 遷移先の画面としてリスト追加画面を指定
-      //         return TodoAddPage();
-      //       }),
-      //     );
-      //     if (newListText != null) {
-      //       // キャンセルした場合は newListText が null となるので注意
-      //       setState(() {
-      //         // リスト追加
-      //         todoList.add(newListText);
-      //       });
-      //     }
-      //   },
-      //   child: Icon(Icons.add),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          // "push"で新規画面に遷移
+          // リスト追加画面から渡される値を受け取る
+          final newListText = await Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) {
+              // 遷移先の画面としてリスト追加画面を指定
+              return TodoAddPage();
+            }),
+          );
+          if (newListText != null) {
+            // キャンセルした場合は newListText が null となるので注意
+            setState(() {
+              // リスト追加
+              todoList.add(newListText);
+            });
+          }
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
