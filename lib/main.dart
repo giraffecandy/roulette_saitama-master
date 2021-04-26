@@ -45,18 +45,18 @@ class _State extends State<MyApp> {
     });
   }
 
-  void frame() {
-    var frameworks = {
-      'Flutter': 'Dart',
-      'Rails': 'Ruby',
-    };
-
-    frameworks.forEach((key, value) {
-      String _key;
-      String _value;
-      // print('$key --- $value');
-    });
-  }
+  // void frame() {
+  //   var frameworks = {
+  //     'Flutter': 'Dart',
+  //     'Rails': 'Ruby',
+  //   };
+  //
+  //   frameworks.forEach((key, value) {
+  //     String _key;
+  //     String _value;
+  //     // print('$key --- $value');
+  //   });
+  // }
 
   String _message = 'Tap this button.';
   String _name = "saitamakennki.png";
@@ -74,28 +74,28 @@ class _State extends State<MyApp> {
   }
 
   // statefulオブジェクトが削除されるときに、参照を削除してくれる
-  void dispose() {
-    super.dispose();
-    _todoInputController.dispose();
-  }
+  // void dispose() {
+  //   super.dispose();
+  //   _todoInputController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
 
-    final List<Map<String, dynamic>> listItems = [
-      {
-        'text': 'Item 1',
-        'color': Colors.blue[600],
-      },
-      {
-        'text': 'Item 2',
-        'color': Colors.blue[300],
-      },
-      {
-        'text': 'Item 3',
-        'color': Colors.blue[100],
-      },
-    ];
+    // final List<Map<String, dynamic>> listItems = [
+    //   {
+    //     'text': 'Item 1',
+    //     'color': Colors.blue[600],
+    //   },
+    //   {
+    //     'text': 'Item 2',
+    //     'color': Colors.blue[300],
+    //   },
+    //   {
+    //     'text': 'Item 3',
+    //     'color': Colors.blue[100],
+    //   },
+    // ];
 
     var listItem = ["Savar", "Archer", "Lancer", "Rider", "Caster", "Assassin", "Berserker", "Ruler", "Avenger", "Alterego", "Mooncancer"];
 
